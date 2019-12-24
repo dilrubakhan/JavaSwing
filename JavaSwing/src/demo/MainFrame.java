@@ -1,6 +1,8 @@
 package demo;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,6 +20,13 @@ public class MainFrame extends JFrame{
 		
 		textArea = new JTextArea();
 		btn = new JButton("Click Me");
+		
+		btn.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				textArea.append("hello \n");
+			}
+		});
 		
 		add(textArea, BorderLayout.CENTER);
 		add(btn, BorderLayout.SOUTH);
