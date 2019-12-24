@@ -1,6 +1,5 @@
 package demo;
 
-import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 public class App {
@@ -10,10 +9,8 @@ public class App {
 			
 			@Override
 			public void run() {
-				JFrame frame = new JFrame("Hello World");	
-				frame.setSize(600, 600);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setVisible(true);
+				
+				new MainFrame();
 			}
 		});
 
