@@ -23,7 +23,14 @@ public class MainFrame extends JFrame{
 		toolbar = new Toolbar();
 		textPanel = new TextPannel();
 		
-		toolbar.setTextPanel(textPanel);
+		toolbar.setStringListener(new StringListener() {
+			
+			@Override
+			public void textEmited(String text) {
+				textPanel.appendTex(text);
+				
+			}
+		});
 	
 		add(toolbar, BorderLayout.NORTH);
 		add(textPanel, BorderLayout.CENTER);

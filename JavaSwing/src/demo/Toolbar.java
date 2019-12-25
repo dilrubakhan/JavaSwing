@@ -11,7 +11,7 @@ public class Toolbar extends JPanel implements ActionListener {
 	private JButton helloBtn;
 	private JButton goodByBtn;
 	
-	private TextPannel textPanel;
+	private StringListener textListener;
 	
 	public Toolbar() {
 		helloBtn = new JButton("Hello");
@@ -26,18 +26,22 @@ public class Toolbar extends JPanel implements ActionListener {
 		add(goodByBtn);
 	}
 	
-	public void setTextPanel(TextPannel textPanel) {
-		this.textPanel = textPanel;
+	public void setStringListener(StringListener listener) {
+		this.textListener = listener;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton clicked = (JButton) e.getSource();
 		if(clicked == helloBtn) {
-			textPanel.appendTex("Hello\n");
+			if(textListener != null) {
+				textListener.textEmited("Hello\n");
+			}
 		}
 		else if(clicked == goodByBtn) {
-			textPanel.appendTex("Goodby\n");
+			if(textListener != null) {
+				textListener.textEmited("Goodby\n");
+			}
 		}
 		
 	}
